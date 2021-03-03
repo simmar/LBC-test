@@ -10,7 +10,10 @@ const Submit = styled('button')`
 `;
 
 export default function Form() {
-  const {handleChange, handleSubmit} = useForm(validate);
+  const {errors, handleChange, handleSubmit} = useForm(login, validate);
+  function login() {
+    console.log('test');
+  }
 
   return (
     <form onSubmit={handleSubmit} noValidate>
@@ -30,7 +33,13 @@ export default function Form() {
             name="firstName"
             required
           />
+          {errors.firstName && (
+            <p className="help is-danger">{errors.firstName}</p>
+          )}
         </label>
+      </div>
+      <div className="has-text-centered mt-big">
+        <button type="submit">Valider mon texte</button>
       </div>
     </form>
   );
