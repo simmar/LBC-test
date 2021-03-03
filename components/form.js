@@ -1,30 +1,19 @@
-// import styled from '@emotion/styled';
-import React, {useState} from 'react';
+import styled from '@emotion/styled';
+import React from 'react';
+import validate from './LoginFormValidationRules';
+import useForm from './useForm';
+
+const Submit = styled('button')`
+  background: #45b344;
+  color: white;
+  border: none;
+`;
 
 export default function Form() {
-  const initialValues = {
-    firstName: '',
-  };
+  const {handleChange, handleSubmit} = useForm(validate);
 
-  const [values, setValues] = useState(initialValues);
-
-  // change event handler
-  const handleChange = (evt) => {
-    const {name, value: newValue, type} = evt.target;
-
-    // keep number fields as numbers
-    const value = type === 'number' ? +newValue : newValue;
-
-    // save field values
-    setValues({
-      ...values,
-      [name]: value,
-    });
-
-    // console.log('values', values);
-  };
   return (
-    <form>
+    <form onSubmit={handleSubmit} noValidate>
       <div>
         <p>
           {' '}
@@ -37,13 +26,11 @@ export default function Form() {
             type="text"
             id="firstName"
             placeholder="Enter your name"
-            value={values.firstName}
             onChange={handleChange}
             name="firstName"
             required
           />
         </label>
-        <p>Bonjour {values.firstName}</p>
       </div>
     </form>
   );

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import React from 'react';
+import React, {useContext} from 'react';
+import {CartContext} from '../Context';
 import data from '../messages/data';
 
 const Fieldset = styled.div((props) => ({
@@ -13,8 +14,9 @@ const LI = styled.li({
   marginBottom: 10,
 });
 
-export default function Presentation({value}) {
-  console.log('value', value);
+export default function Presentation() {
+  const {values} = useContext(CartContext);
+  console.log('values', values);
 
   return (
     <Fieldset>
@@ -23,7 +25,7 @@ export default function Presentation({value}) {
           return <LI key={key}>{item.message}</LI>;
         })}
       </ul>
-      <p>Bonjour {value}</p>
+      <p>Bonjour {values.firstName}</p>
     </Fieldset>
   );
 }

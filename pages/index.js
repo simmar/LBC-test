@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import Form from '../components/form';
 import Presentation from '../components/Presentation';
+import CartContextProvider from '../Context';
 
 const Section = styled.section`
   width: 1240px;
@@ -27,13 +28,15 @@ const H2 = styled.h2({
 
 export default function Home() {
   return (
-    <Container column>
-      <H1 color="lightgreen">Bonjour LBC !!</H1>
-      <H2>J'en profite pour faire une petite présentation ^^</H2>
-      <Section>
-        <Presentation></Presentation>
-        <Form></Form>
-      </Section>
-    </Container>
+    <CartContextProvider>
+      <Container column>
+        <H1 color="lightgreen">Bonjour LBC !!</H1>
+        <H2>J'en profite pour faire une petite présentation ^^</H2>
+        <Section>
+          <Presentation></Presentation>
+          <Form></Form>
+        </Section>
+      </Container>
+    </CartContextProvider>
   );
 }
