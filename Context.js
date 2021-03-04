@@ -3,9 +3,10 @@ export const CartContext = createContext();
 
 const Context = (props) => {
   const [values, setValues] = useState('');
+  const [isActive, setisActive] = useState(false);
 
   return (
-    <CartContext.Provider value={{values, setValues}}>
+    <CartContext.Provider value={{values, setValues, isActive, setisActive}}>
       {props.children}
     </CartContext.Provider>
   );

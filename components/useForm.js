@@ -2,7 +2,7 @@ import {useContext, useEffect, useMemo, useState} from 'react';
 import {CartContext} from '../Context';
 
 const useForm = (callback, validate) => {
-  const {values, setValues} = useContext(CartContext);
+  const {values, setValues, setisActive} = useContext(CartContext);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -16,6 +16,15 @@ const useForm = (callback, validate) => {
     if (event) event.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);
+    setisActive(true);
+
+    if (errors.firstName) {
+      setisActive(true);
+      console.log('setisActive(true)');
+    } else {
+      setisActive(false);
+      console.log('setisActive(false)');
+    }
   };
 
   const handleChange = (event) => {

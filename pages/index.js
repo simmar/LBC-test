@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import Form from '../components/form';
+import MessagesReceived from '../components/MessagesReceived';
 import Presentation from '../components/Presentation';
 import CartContextProvider from '../Context';
 
@@ -19,8 +20,10 @@ const Container = styled.div((props) => ({
 }));
 
 const H1 = styled.h1({
-  fontSize: 40,
+  fontSize: 60,
   textAlign: 'center',
+  color: '#ff6e14',
+  textTransform: 'uppercase',
 });
 const H2 = styled.h2({
   fontSize: 20,
@@ -35,6 +38,7 @@ export default function Home() {
         <Section>
           <Presentation></Presentation>
           <Form></Form>
+          <MessagesReceived></MessagesReceived>
         </Section>
       </Container>
     </CartContextProvider>
