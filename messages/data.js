@@ -11,18 +11,17 @@ const data = [
   },
   {
     message:
-      "A la suite d'une formation de 6 mois,j'ai intégré Publicis où je suis depuis 9 ans.",
+      "A la suite d'une formation de 6 mois, j'ai intégré Publicis où je suis depuis 9 ans.",
   },
   {
-    message:
-      'Jai commencé en tant que webmaster, puis intégrateur de newsletter.',
+    message: 'Jai commencé en tant que webmaster (contenu et newsletter).',
   },
   {
     message: "Ensuite j'ai commencé à faire des intégrations de pages web.",
   },
   {
     message:
-      "Aujourd'hui le métier d'intégrateur est en pleine transitions et je compte bien la réussir. Après avoir essayé Angular et Vue.js, ma préférence se trouve vers React, c'est pour cela qu'aujourd'hui je veut approffondir mes compétences eet devenir spécialiste React",
+      "Aujourd'hui le métier d'intégrateur est en pleine transitions et je compte bien la réussir. Après avoir essayé Angular et Vue.js, ma préférence se trouve vers React, c'est pour cela qu'aujourd'hui je veut approffondir mes compétences et devenir spécialiste React",
   },
 ];
 

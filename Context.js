@@ -4,9 +4,12 @@ export const CartContext = createContext();
 const Context = (props) => {
   const [values, setValues] = useState('');
   const [isActive, setisActive] = useState(false);
+  const [checked, setIschecked] = useState(false);
 
   return (
-    <CartContext.Provider value={{values, setValues, isActive, setisActive}}>
+    <CartContext.Provider
+      value={{values, setValues, isActive, setisActive, checked, setIschecked}}
+    >
       {props.children}
     </CartContext.Provider>
   );

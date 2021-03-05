@@ -2,13 +2,16 @@ import {useContext, useEffect, useMemo, useState} from 'react';
 import {CartContext} from '../Context';
 
 const useForm = (callback, validate) => {
-  const {values, setValues, setisActive} = useContext(CartContext);
+  const {values, setValues, setisActive, checked, setIschecked} = useContext(
+    CartContext
+  );
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();
+      setisActive(true);
     }
   }, [callback, errors, isSubmitting]);
 
@@ -16,15 +19,6 @@ const useForm = (callback, validate) => {
     if (event) event.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);
-    setisActive(true);
-
-    if (errors.firstName) {
-      setisActive(true);
-      console.log('setisActive(true)');
-    } else {
-      setisActive(false);
-      console.log('setisActive(false)');
-    }
   };
 
   const handleChange = (event) => {
@@ -32,6 +26,7 @@ const useForm = (callback, validate) => {
       ...values,
       [event.target.name]: event.target.value,
     }));
+    setIschecked(!checked);
   };
 
   return useMemo(() => ({

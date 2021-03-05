@@ -1,15 +1,19 @@
 import styled from '@emotion/styled';
+import React from 'react';
 import validate from './LoginFormValidationRules';
 import useForm from './useForm';
 
-const P = styled('p')`
+const P = styled.p`
   margin-bottom: 20px;
-  font-size: 20px;
+  color: ${(props) => (props.primary ? 'red' : 'black')};
+  font-size: ${(props) => (props.primary ? '14px' : '20px')};
+  margin-top: ${(props) => (props.primary ? '5px' : '20px')};
 `;
 
 const Label = styled('label')`
   margin-bottom: 40px;
   display: block;
+  font-size: 16px;
 `;
 
 const Input = styled('input')`
@@ -22,15 +26,7 @@ const Message = styled('textarea')`
   min-height: 100px;
   padding: 5px;
 `;
-const Private = styled('label')`
-  font-size: 14px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-`;
-const Checkbox = styled('input')`
-  margin-right: 10px;
-`;
+
 const Submit = styled('button')`
   background: #ff6e14;
   color: white;
@@ -38,7 +34,10 @@ const Submit = styled('button')`
   padding: 10px;
 `;
 export default function Form() {
-  const {errors, handleChange, handleSubmit} = useForm(login, validate);
+  const {errors, handleChange, handleSubmit, handleChecked} = useForm(
+    login,
+    validate
+  );
 
   function login() {
     //console.log('test');
@@ -62,9 +61,7 @@ export default function Form() {
             name="firstName"
             required
           />
-          {errors.firstName && (
-            <p className="help is-danger">{errors.firstName}</p>
-          )}
+          {errors.firstName && <P primary>{errors.firstName}</P>}
         </Label>
       </div>
 
@@ -75,15 +72,10 @@ export default function Form() {
         required
       ></Message>
 
-      {/* <Label>
+      <Label>
         Message privé ?
-        <Input
-          name="private"
-          onChange={handleChange}
-          // checked={inputs.private || false}
-          type="checkbox"
-        />
-      </Label> */}
+        <Input name="private" onChange={handleChange} type="checkbox" />
+      </Label>
 
       <div className="has-text-centered mt-big">
         <Submit type="submit">Valider mon texte</Submit>
