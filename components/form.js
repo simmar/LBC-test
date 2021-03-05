@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import validate from './LoginFormValidationRules';
-import useForm from './useForm';
+import validate from '../hooks/LoginFormValidationRules';
+import useForm from '../hooks/useForm';
 
 const P = styled.p`
   margin-bottom: 20px;
@@ -34,17 +34,10 @@ const Submit = styled('button')`
   padding: 10px;
 `;
 export default function Form() {
-  const {errors, handleChange, handleSubmit, handleChecked} = useForm(
-    login,
-    validate
-  );
-
-  function login() {
-    //console.log('test');
-  }
+  const {errors, handleChange, handleSubmit} = useForm(validate);
 
   return (
-    // Add some messages with this Form to Simon
+    // Add some messages with this Form
     <form onSubmit={handleSubmit} noValidate>
       <div>
         <P>
@@ -52,7 +45,7 @@ export default function Form() {
           :)
         </P>
         <Label htmlFor="firstName">
-          Quel est votre Nom ?
+          Quel est votre Nom ? <sup>*</sup>
           <Input
             type="text"
             id="firstName"

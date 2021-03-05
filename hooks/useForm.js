@@ -1,24 +1,34 @@
 import {useContext, useEffect, useMemo, useState} from 'react';
 import {CartContext} from '../Context';
 
-const useForm = (callback, validate) => {
-  const {values, setValues, setisActive, checked, setIschecked} = useContext(
-    CartContext
-  );
+// Function file for validate and submit form
+const useForm = (validate) => {
+  const {
+    values,
+    setValues,
+    isActive,
+    setisActive,
+    checked,
+    setIschecked,
+  } = useContext(CartContext);
+
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      callback();
       setisActive(true);
     }
-  }, [callback, errors, isSubmitting]);
+  }, [errors, isSubmitting]);
 
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);
+
+    if (isActive === true) {
+      setisActive(false);
+    }
   };
 
   const handleChange = (event) => {

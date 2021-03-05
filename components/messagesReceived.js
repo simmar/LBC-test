@@ -8,7 +8,7 @@ const LI = styled.li({
 });
 
 export default function MessagesReceived() {
-  const {values, isActive, checked, setIschecked} = useContext(CartContext);
+  const {values, isActive, checked} = useContext(CartContext);
 
   function UserGreeting(props) {
     return <p>Ce message est privé</p>;
@@ -19,13 +19,11 @@ export default function MessagesReceived() {
   }
 
   function Greeting(props) {
-    if (!checked) {
+    if (checked) {
       return <UserGreeting />;
     }
     return <GuestGreeting />;
   }
-
-  console.log('checked', checked);
 
   return (
     <div>
