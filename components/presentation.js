@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import data from '../messages/data';
+import data from '../presentation/data';
 
 const Fieldset = styled.div((props) => ({
   margin: '0 auto 20 auto',

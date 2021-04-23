@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
+import Link from 'next/link';
 import React from 'react';
-import validate from '../hooks/LoginFormValidationRules';
 import useForm from '../hooks/useForm';
-
+import validate from '../hooks/validationForm.js';
 const P = styled.p`
   margin-bottom: 20px;
   color: ${(props) => (props.primary ? 'red' : 'black')};
-  font-size: ${(props) => (props.primary ? '14px' : '20px')};
   margin-top: ${(props) => (props.primary ? '5px' : '20px')};
 `;
 
@@ -71,7 +70,10 @@ export default function Form() {
       </Label>
 
       <div className="has-text-centered mt-big">
-        <Submit type="submit">Valider mon texte</Submit>
+      <Link href="posts/messages">
+      <Submit type="submit">Valider mon texte</Submit>
+</Link>
+
       </div>
     </form>
   );
