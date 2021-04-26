@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
-import Link from 'next/link';
 import React from 'react';
-import useForm from '../hooks/useForm';
-import validate from '../hooks/validationForm.js';
+import useForm from '../hooks/UseForm';
+import validate from '../hooks/ValidationForm.js';
+
 const P = styled.p`
   margin-bottom: 20px;
   color: ${(props) => (props.primary ? 'red' : 'black')};
+  // font-size: ${(props) => (props.primary ? '14px' : '20px')};
   margin-top: ${(props) => (props.primary ? '5px' : '20px')};
 `;
 
@@ -33,7 +34,7 @@ const Submit = styled('button')`
   padding: 10px;
 `;
 export default function Form() {
-  const {errors, handleChange, handleSubmit} = useForm(validate);
+  const { errors, handleChange, handleSubmit } = useForm(validate);
 
   return (
     // Add some messages with this Form
@@ -70,10 +71,7 @@ export default function Form() {
       </Label>
 
       <div className="has-text-centered mt-big">
-      <Link href="posts/messages">
-      <Submit type="submit">Valider mon texte</Submit>
-</Link>
-
+        <Submit type="submit">Valider mon texte</Submit>
       </div>
     </form>
   );

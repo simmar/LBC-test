@@ -1,5 +1,5 @@
-import {useContext, useEffect, useMemo, useState} from 'react';
-import {CartContext} from '../Context';
+import { useContext, useEffect, useMemo, useState } from 'react';
+import { CartContext } from '../Context';
 
 // Function file for validate and submit form
 const useForm = (validate) => {

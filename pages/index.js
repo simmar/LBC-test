@@ -1,7 +1,8 @@
 import { css, Global } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
-import Form from '../components/form';
+import Form from '../components/Form';
+import MessagesReceived from '../components/MessagesReceived';
 import Presentation from '../components/Presentation';
 import CartContextProvider from '../Context';
 
@@ -52,7 +53,7 @@ export default function Home() {
           <Section>
             <Presentation></Presentation>
             <Form></Form>
-            {/* <MessagesReceived></MessagesReceived> */}
+            <MessagesReceived></MessagesReceived>
           </Section>
         </Container>
       </CartContextProvider>
