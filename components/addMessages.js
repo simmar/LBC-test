@@ -2,15 +2,6 @@ import styled from '@emotion/styled';
 import useForm from '../hooks/UseForm';
 import validate from '../hooks/ValidationForm.js';
 
-
-
-const P = styled.p`
-  margin-bottom: 20px;
-  color: ${(props) => (props.primary ? 'red' : 'black')};
-  // font-size: ${(props) => (props.primary ? '14px' : '20px')};
-  margin-top: ${(props) => (props.primary ? '5px' : '20px')};
-`;
-
 const Label = styled('label')`
   margin-bottom: 20px;
   display: block;
@@ -26,6 +17,7 @@ const Message = styled('textarea')`
   margin-bottom: 10px;
   min-height: 100px;
   padding: 5px;
+  border-radius: 10px;
 `;
 
 const Submit = styled('button')`
@@ -46,10 +38,7 @@ export default function addMessages() {
     // Add some messages with this Form
     <form onSubmit={handleSubmit} noValidate>
       <div>
-        <P>
-          Si vous avez envie de me faire un petit retour, cela sera avec plaisir
-          :)
-        </P>
+
         <Label>
           Quel est votre Nom ? <sup>*</sup>
           <Input

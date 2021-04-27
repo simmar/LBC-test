@@ -2,13 +2,18 @@ import styled from '@emotion/styled';
 import React, { useContext } from 'react';
 import { CartContext } from '../Context';
 
-const LI = styled.li({
-  fontSize: 18,
-  marginBottom: 10,
-});
-
+const Blockmsg = styled('Blockmsg')`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`
+const Message = styled.div`
+  width: 50%;
+  margin: 0 auto 10px;
+  min-height: 100px;
+`
 export default function MessagesReceived() {
-  const {newMessages, checked} = useContext(CartContext);
+  const { newMessages, isActive, checked } = useContext(CartContext);
   function UserGreeting(props) {
     return <p>Ce message est privé</p>;
   }
@@ -25,26 +30,21 @@ export default function MessagesReceived() {
   }
 
   return (
-    <div>
-      {/* {isActive ? (
-        <div>
-
-          <p>Bonjour mon nom est: {values.firstName}</p>
-          <p>{values.message}</p>
-          <Greeting />
-        </div>
-      ) : null} */}
-
-{ newMessages.map((file, index) => {
-        return (
+    <Blockmsg>
+      {isActive ? (
         <>
-          <div key={index}>
-              <p>{file.firstName}</p>
-              <p>{file.message}</p>
-          </div>
+          {newMessages.map((file, index) => {
+            return (
+              <Message key={index}>
+                <p>Bonjour mon nom est: {file.firstName}</p>
+                {file.message}
+                <Greeting />
+
+              </Message>
+            )
+          })}
         </>
-        )
-    })}
-    </div>
+      ) : null}
+    </Blockmsg>
   );
 }
