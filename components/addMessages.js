@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
-import React from 'react';
 import useForm from '../hooks/UseForm';
 import validate from '../hooks/ValidationForm.js';
+
+
 
 const P = styled.p`
   margin-bottom: 20px;
@@ -11,7 +12,7 @@ const P = styled.p`
 `;
 
 const Label = styled('label')`
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   display: block;
   font-size: 16px;
 `;
@@ -33,8 +34,13 @@ const Submit = styled('button')`
   border: none;
   padding: 10px;
 `;
-export default function Form() {
-  const { errors, handleChange, handleSubmit } = useForm(validate);
+
+export default function addMessages() {
+
+  const onSubmit = () => {
+
+  }
+  const { handleSubmit, handleChange, errors } = useForm(validate, onSubmit)
 
   return (
     // Add some messages with this Form
@@ -44,11 +50,10 @@ export default function Form() {
           Si vous avez envie de me faire un petit retour, cela sera avec plaisir
           :)
         </P>
-        <Label htmlFor="firstName">
+        <Label>
           Quel est votre Nom ? <sup>*</sup>
           <Input
             type="text"
-            id="firstName"
             placeholder="Enter your name"
             onChange={handleChange}
             name="firstName"

@@ -8,7 +8,7 @@ const LI = styled.li({
 });
 
 export default function MessagesReceived() {
-  const {values, isActive, checked} = useContext(CartContext);
+  const {newMessages, checked} = useContext(CartContext);
   function UserGreeting(props) {
     return <p>Ce message est privé</p>;
   }
@@ -26,14 +26,25 @@ export default function MessagesReceived() {
 
   return (
     <div>
-      {isActive ? (
+      {/* {isActive ? (
         <div>
 
           <p>Bonjour mon nom est: {values.firstName}</p>
           <p>{values.message}</p>
           <Greeting />
         </div>
-      ) : null}
+      ) : null} */}
+
+{ newMessages.map((file, index) => {
+        return (
+        <>
+          <div key={index}>
+              <p>{file.firstName}</p>
+              <p>{file.message}</p>
+          </div>
+        </>
+        )
+    })}
     </div>
   );
 }

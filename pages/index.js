@@ -1,7 +1,7 @@
 import { css, Global } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
-import Form from '../components/Form';
+import AddMessages from '../components/addMessages';
 import MessagesReceived from '../components/MessagesReceived';
 import Presentation from '../components/Presentation';
 import CartContextProvider from '../Context';
@@ -52,7 +52,7 @@ export default function Home() {
           <H2>J'en profite pour faire une petite présentation ^^</H2>
           <Section>
             <Presentation></Presentation>
-            <Form></Form>
+            <AddMessages/>
             <MessagesReceived></MessagesReceived>
           </Section>
         </Container>

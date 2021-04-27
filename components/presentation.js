@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import data from '../presentation/Data';
+import dataPresentation from '../presentation/Data';
 
 const Fieldset = styled.div((props) => ({
   margin: '0 auto 20 auto',
@@ -18,8 +18,8 @@ export default function Presentation() {
   return (
     <Fieldset>
       <ul className="has-text-centered" id="stickers">
-        {data.map((item, key) => {
-          return <LI key={key}>{item.message}</LI>;
+        {dataPresentation.map((item, key) => {
+          return <LI key={key}>{item.intro}</LI>;
         })}
       </ul>
     </Fieldset>

@@ -2,10 +2,10 @@ import { useContext, useEffect, useMemo, useState } from 'react';
 import { CartContext } from '../Context';
 
 // Function file for validate and submit form
-const useForm = (validate) => {
+const useForm = (validate,onSubmit) => {
   const {
     values,
-    setValues,
+    setValues,newMessages, setnewMessages,
     isActive,
     setisActive,
     checked,
@@ -21,16 +21,6 @@ const useForm = (validate) => {
     }
   }, [errors, isSubmitting]);
 
-  const handleSubmit = (event) => {
-    if (event) event.preventDefault();
-    setErrors(validate(values));
-    setIsSubmitting(true);
-
-    if (isActive === true) {
-      setisActive(false);
-    }
-  };
-
   const handleChange = (event) => {
     setValues((values) => ({
       ...values,
@@ -39,9 +29,30 @@ const useForm = (validate) => {
     setIschecked(!checked);
   };
 
+  const handleSubmit = (event) => {
+    event && event.preventDefault()
+
+    newMessages.push(values)
+    setnewMessages(newMessages)
+    console.log('newMessages', newMessages);
+    
+    setErrors(validate(values));
+    setIsSubmitting(true);
+
+    if (isActive === true) {
+      setisActive(false);
+    }
+    if (isSubmitting === true) {
+      console.log('values', values);
+      
+    }
+
+  };
+
   return useMemo(() => ({
     handleChange,
     handleSubmit,
+    onSubmit,
     values,
     errors,
   }));
