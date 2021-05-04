@@ -2,8 +2,8 @@ import { css, Global } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
 import AddMessages from '../components/addMessages';
-import MessagesReceived from '../components/MessagesReceived';
-import Presentation from '../components/Presentation';
+import MessagesReceived from '../components/messagesReceived';
+import Presentation from '../components/presentation';
 import CartContextProvider from '../Context';
 
 <style>
@@ -42,7 +42,7 @@ export default function Home() {
       <Global
         styles={css`
           body{
-            font-family: 'Roboto Thin', sans-serif;
+            font-family: 'Roboto wght', sans-serif;
             font-size: 18px
           }
         `}

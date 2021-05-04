@@ -4,7 +4,7 @@ const dataPresentation = [
   },
   {
     intro:
-      "À l'âge de 35 ans j'ai décidé de changer de métier et de faire une reconversion complète  puisque j'étais cuisinier. J'ai travaillé dans des grandes maisons comme Lenötre ou Dalloyau et Harrods à Londres pendant 1 an.",
+      "À l'âge de 35 ans j'ai décidé de changer de métier et de faire une reconversion complète  puisque j'étais cuisinier. J'ai travaillé dans des grandes maisons comme Lenôtre, Dalloyau et Harrod's à Londres pendant 1 an.",
   },
   {
     intro:

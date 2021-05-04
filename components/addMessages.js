@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import React from 'react';
 import useForm from '../hooks/UseForm';
-import validate from '../hooks/ValidationForm.js';
+import validate from '../hooks/validationForm.js';
 
 const Label = styled('label')`
   margin-bottom: 20px;
@@ -38,7 +39,6 @@ export default function addMessages() {
     // Add some messages with this Form
     <form onSubmit={handleSubmit} noValidate>
       <div>
-
         <Label>
           Quel est votre Nom ? <sup>*</sup>
           <Input
