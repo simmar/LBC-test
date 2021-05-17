@@ -6,11 +6,10 @@ const Context = (props) => {
   const [newMessages, setnewMessages] = useState([]);
 
   const [isActive, setisActive] = useState(false);
-  const [checked, setIschecked] = useState(false);
 
   return (
     <CartContext.Provider
-      value={{values, setValues,newMessages, setnewMessages, isActive, setisActive, checked, setIschecked}}
+      value={{values, setValues,newMessages, setnewMessages, isActive, setisActive}}
     >
       {props.children}
     </CartContext.Provider>

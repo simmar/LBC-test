@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../Context';
 
 // Function file for validate and submit form
@@ -7,9 +7,7 @@ const useForm = (validate,onSubmit) => {
     values,
     setValues,newMessages, setnewMessages,
     isActive,
-    setisActive,
-    checked,
-    setIschecked,
+    setisActive
   } = useContext(CartContext);
 
   const [errors, setErrors] = useState({});
@@ -17,16 +15,20 @@ const useForm = (validate,onSubmit) => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      setisActive(true);
+       setisActive(true);
     }
   }, [errors, isSubmitting]);
 
-  const handleChange = (event) => {
+  const handleChange = ({target}) => {
+    const value = target.type === 'checkbox'
+    ? target.checked
+    : target.value
+
     setValues((values) => ({
       ...values,
-      [event.target.name]: event.target.value,
+      [target.name]: value,
     }));
-    setIschecked(!checked);
+
   };
 
   const handleSubmit = (event) => {
@@ -34,28 +36,24 @@ const useForm = (validate,onSubmit) => {
 
     newMessages.push(values)
     setnewMessages(newMessages)
-    console.log('newMessages', newMessages);
     
     setErrors(validate(values));
     setIsSubmitting(true);
 
+
     if (isActive === true) {
       setisActive(false);
-    }
-    if (isSubmitting === true) {
-      console.log('values', values);
-      
     }
 
   };
 
-  return useMemo(() => ({
+  return {
     handleChange,
     handleSubmit,
     onSubmit,
     values,
     errors,
-  }));
+  }
 };
 
 export default useForm;

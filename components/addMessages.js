@@ -30,10 +30,7 @@ const Submit = styled('button')`
 
 export default function addMessages() {
 
-  const onSubmit = () => {
-
-  }
-  const { handleSubmit, handleChange, errors } = useForm(validate, onSubmit)
+  const { handleSubmit, handleChange, errors } = useForm(validate)
 
   return (
     // Add some messages with this Form
