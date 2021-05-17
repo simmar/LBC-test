@@ -41,7 +41,6 @@ export default function MessagesReceived() {
       {isActive ? (
         <>
           {newMessages.map((file, index) => {
-            console.log('file', file.private);
             return (
               <Message key={index}> 
                 <P>Bonjour mon nom est: {file.firstName}</P>

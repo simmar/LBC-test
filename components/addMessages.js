@@ -28,9 +28,19 @@ const Submit = styled('button')`
   padding: 10px;
 `;
 
+const Error = styled.p`
+  margin: 10px 0;
+  font-family: 'Roboto Thin',sans-serif;
+  font-weight: 100;
+  color: red;
+`
+
 export default function addMessages() {
 
-  const { handleSubmit, handleChange, errors } = useForm(validate)
+  const onSubmit = () => {
+
+  }
+  const { handleSubmit, handleChange, errors } = useForm(validate, onSubmit)
 
   return (
     // Add some messages with this Form
@@ -45,7 +55,7 @@ export default function addMessages() {
             name="firstName"
             required
           />
-          {errors.firstName && <P primary>{errors.firstName}</P>}
+          {errors.firstName && <Error>{errors.firstName}</Error>}
         </Label>
       </div>
 
