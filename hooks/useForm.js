@@ -13,12 +13,14 @@ const useForm = (validate,onSubmit) => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // If no error and isSubmitting only, we can display messages
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
        setisActive(true);
     }
   }, [errors, isSubmitting]);
 
+  // Get back value of 'inputs'
   const handleChange = ({target}) => {
     const value = target.type === 'checkbox'
     ? target.checked
@@ -31,15 +33,14 @@ const useForm = (validate,onSubmit) => {
 
   };
 
+  // submit messages value 
   const handleSubmit = (event) => {
     event && event.preventDefault()
 
     newMessages.push(values)
     setnewMessages(newMessages)
-    
     setErrors(validate(values));
     setIsSubmitting(true);
-
 
     if (isActive === true) {
       setisActive(false);

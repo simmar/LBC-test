@@ -8,13 +8,17 @@ const Blockmsg = styled.div`
   flex-direction: column;
   align-items: flex-end;
 `
-const Message = styled.div(({ isPrivate }) => css`
-
+const Message = styled.div`
   width: 50%;
   margin: 0 auto 10px;
   min-height: 100px;
+  `
+  const MessagePrivate = styled.div(({ isPrivate }) => css`
+  font-size: 14px;
+  color: #ff6e14;
   opacity: ${isPrivate ? 0.5 : 1};
-  `)
+`)
+  
 const P = styled.p`
   margin: 10px 0;
   font-family: 'Roboto Thin',sans-serif;
@@ -23,10 +27,6 @@ const P = styled.p`
 
 export default function MessagesReceived() {
   const { newMessages, isActive } = useContext(CartContext);
-  console.log('newMessages', newMessages);
-
-  console.log(Object.values(newMessages).includes('private'));
-
   
   function UserGreeting(props) {
     return <P>Ce message est privé</P>;
@@ -36,31 +36,22 @@ export default function MessagesReceived() {
     return <P>Ce message n'est pas privé</P>;
   }
 
-  // function Greeting(props) {
-
-  //   if (newMessages.filter(i => i.private === true)) {
-  //     // return <UserGreeting />;
-      
-  //   } else if (newMessages.filter(i => i.private === false)) {
-  //     // return <GuestGreeting />;
-  //     console.log('false', );
-    
-  // }
-
   return (
     <Blockmsg>
       {isActive ? (
         <>
           {newMessages.map((file, index) => {
+            console.log('file', file.private);
             return (
-              <Message key={index} 
-              isPrivate={file.private}
-              
-              > 
+              <Message key={index}> 
                 <P>Bonjour mon nom est: {file.firstName}</P>
                 <P>{file.message}</P>
-                <P>{file.private}</P>
-                {/* <Greeting /> */}
+                <MessagePrivate isPrivate={file.private}>
+                {file.private === true ? (
+                  <UserGreeting />
+                )  : 
+                <GuestGreeting /> }
+                </MessagePrivate>
               </Message>
             )
           })}
