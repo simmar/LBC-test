@@ -1,10 +1,10 @@
 import { css, Global } from '@emotion/react';
 import styled from '@emotion/styled';
+import CartContextProvider from 'Context';
 import React from 'react';
-import AddMessages from '../components/addMessages';
-import MessagesReceived from '../components/messagesReceived';
-import Presentation from '../components/presentation';
-import CartContextProvider from '../Context';
+import AddMessages from './components/addMessages';
+import MessagesReceived from './components/messagesReceived';
+import Presentation from './components/presentation';
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,300&display=swap');
@@ -54,7 +54,6 @@ export default function Home() {
           <Section>
             <Presentation/>
             <MessagesReceived/>
-
             <AddMessages/>
           </Section>
         </Container>

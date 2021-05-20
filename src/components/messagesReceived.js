@@ -11,7 +11,6 @@ const Blockmsg = styled.div`
 const Message = styled.div`
   width: 50%;
   margin: 0 auto 10px;
-  min-height: 100px;
   `
   const MessagePrivate = styled.div(({ isPrivate }) => css`
   font-size: 14px;

@@ -1,0 +1,29 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #282c34;
+  font-size: calc(10px + 1vmin);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+input,
+textarea,
+button {
+  margin: 0;
+  font-family: sans-serif;
+  padding: 10px 15px;
+  font-size: calc(10px + 1vmin);
+  border-radius: 10px;
+}
