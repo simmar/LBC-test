@@ -26,7 +26,7 @@ const P = styled.p`
 `
 
 export default function MessagesReceived() {
-  const { newMessages, isActive, values } = useContext(CartContext);
+  const { newMessages } = useContext(CartContext);
   
   function UserGreeting(props) {
     return <P>Ce message est privé</P>;
@@ -38,8 +38,7 @@ export default function MessagesReceived() {
 
   return (
     <Blockmsg>
-      {isActive ? (
-        <>
+      <>
           {newMessages.map((file, index) => {
             return (
               <Message key={index}> 
@@ -55,7 +54,6 @@ export default function MessagesReceived() {
             )
           })}
         </>
-      ) : null}
     </Blockmsg>
   );
 }
