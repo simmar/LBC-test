@@ -11,14 +11,13 @@ const useForm = (validate,onSubmit) => {
   } = useContext(CartContext);
 
   const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // If no error and isSubmitting only, we can display messages
   useEffect(() => {
-    if (Object.keys(errors).length === 0 && isSubmitting) {
-       setisActive(true);
+    if (Object.keys(errors).length === 0 ) {
+      setisActive(true);
     }
-  }, [errors, isSubmitting]);
+  }, [errors]);
 
   // Get back value of 'inputs'
   const handleChange = ({target}) => {
@@ -30,22 +29,22 @@ const useForm = (validate,onSubmit) => {
       ...values,
       [target.name]: value,
     }));
-
   };
 
   // submit messages value 
   const handleSubmit = (event) => {
     event && event.preventDefault()
 
-    newMessages.push(values)
-    setnewMessages(newMessages)
+    if(Object.entries(validate(values)).length === 0) {  
+      setnewMessages(newMessages)
+      newMessages.push(values)
+    }
+    
     setErrors(validate(values));
-    setIsSubmitting(true);
 
     if (isActive === true) {
       setisActive(false);
     }
-
   };
 
   return {

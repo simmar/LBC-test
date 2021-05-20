@@ -4,7 +4,6 @@ export const CartContext = createContext();
 const Context = (props) => {
   const [values, setValues] = useState({});
   const [newMessages, setnewMessages] = useState([]);
-
   const [isActive, setisActive] = useState(false);
 
   return (

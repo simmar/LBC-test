@@ -26,7 +26,7 @@ const P = styled.p`
 `
 
 export default function MessagesReceived() {
-  const { newMessages, isActive } = useContext(CartContext);
+  const { newMessages, isActive, values } = useContext(CartContext);
   
   function UserGreeting(props) {
     return <P>Ce message est privé</P>;
